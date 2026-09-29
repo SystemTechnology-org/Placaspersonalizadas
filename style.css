@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   CONFIGURAÇÃO DE FONTES EXTERNAS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap');
+
+/* ==========================================================================
+   VARIÁVEIS CSS (PALETA RIGOROSA & TEMA)
+   ========================================================================== */
+:root {
+  /* Paleta de Cores Estrita */
+  --verde-escuro: #1B4D2E;    /* Títulos e destaques principais */
+  --verde-medio: #4C7A3E;     /* Fundos de seção, botões secundários */
+  --verde-claro: #8FAF56;     /* Ícones, acentos decorativos */
+  --verde-whatsapp: #25D366;  /* CTA de contato WhatsApp */
+  --creme: #F1EEE4;           /* Fundo creme/bege claro */
+  --branco: #FFFFFF;          /* Branco */
+  --neutro: #1A1A1A;          /* Texto escuro neutro */
+
+  /* Sombras Personalizadas baseadas em Verde Escuro (#1B4D2E) */
+  --shadow-placa: 0 20px 35px -10px rgba(27, 77, 46, 0.15), 0 10px 15px -5px rgba(27, 77, 46, 0.08);
+  --shadow-placa-hover: 0 25px 45px -12px rgba(27, 77, 46, 0.25), 0 12px 20px -6px rgba(27, 77, 46, 0.12);
+  --shadow-vidro: 0 8px 32px 0 rgba(27, 77, 46, 0.12);
+
+  /* Tipografia */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   ESTILOS DE BASE & RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--creme);
+  color: var(--neutro);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+/* ==========================================================================
+   COMPONENTES VISUAIS PERSONALIZADOS (PLACAS DE VIDRO & FIXADORES)
+   ========================================================================== */
+
+/* Efeito de Vidro Temperado Translúcido */
+.glass-effect {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(241, 238, 228, 0.6) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Parafuso/Espaçador Cilíndrico de Inox Realista (Usando estritamente Branco #FFFFFF e Neutro #1A1A1A) */
+.bolt-screw {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 30%, rgba(26, 26, 26, 0.4) 75%, #1A1A1A 100%);
+  box-shadow: 1px 2px 4px rgba(26, 26, 26, 0.3), inset 0 0 2px #FFFFFF;
+  position: relative;
+}
+
+.bolt-screw::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(26, 26, 26, 0.5) 0%, #1A1A1A 100%);
+  opacity: 0.7;
+}
+
+/* Classes de Sombras Personalizadas */
+.shadow-placa {
+  box-shadow: var(--shadow-placa);
+}
+
+.shadow-placa-hover {
+  box-shadow: var(--shadow-placa-hover);
+}
+
+.shadow-vidro {
+  box-shadow: var(--shadow-vidro);
+}
+
+/* ==========================================================================
+   ANIMAÇÕES
+   ========================================================================== */
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   CLASSES UTILITÁRIAS DA PALETA DE CORES (FALLBACK DIRETO)
+   ========================================================================== */
+.bg-verde-escuro { background-color: var(--verde-escuro); }
+.text-verde-escuro { color: var(--verde-escuro); }
+.border-verde-escuro { border-color: var(--verde-escuro); }
+
+.bg-verde-medio { background-color: var(--verde-medio); }
+.text-verde-medio { color: var(--verde-medio); }
+.border-verde-medio { border-color: var(--verde-medio); }
+
+.bg-verde-claro { background-color: var(--verde-claro); }
+.text-verde-claro { color: var(--verde-claro); }
+.border-verde-claro { border-color: var(--verde-claro); }
+
+.bg-verde-whatsapp { background-color: var(--verde-whatsapp); }
+.text-verde-whatsapp { color: var(--verde-whatsapp); }
+
+.bg-creme { background-color: var(--creme); }
+.text-creme { color: var(--creme); }
+
+.bg-branco { background-color: var(--branco); }
+.text-branco { color: var(--branco); }
+
+.text-neutro { color: var(--neutro); }
