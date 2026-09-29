@@ -20,19 +20,20 @@ Landing page institucional de alta conversão, responsiva (mobile-first), desenv
 
 ---
 
-## 📱 Como Configurar o WhatsApp
+## 📱 Configuração do WhatsApp
 
-No final do arquivo `index.html` (por volta da linha 960), localize o bloco de script:
+No final do arquivo `index.html`, o WhatsApp está configurado para:
 
 ```javascript
 const CONFIG_WHATSAPP = {
-  numero: "5500000000000", // <<< COLOQUE SEU WHATSAPP AQUI
+  numero: "557199161402", // +55 71 9916-1402
+  numeroFormatado: "+55 71 9916-1402",
   mensagemPadrao: "Olá! Vi o site e gostaria de solicitar um orçamento para uma placa personalizada em vidro temperado."
 };
 ```
 
-1. Substitua `"5500000000000"` pelo seu número com DDI e DDD (exemplo: `"5511999998888"`).
-2. Todos os botões da página (Header, Hero, Galeria de Modelos, CTA Final e Botão Flutuante) serão atualizados automaticamente!
+1. Para alterar futuramente, basta substituir o número mantendo o DDI e DDD (ex: `"557199161402"`).
+2. Todos os botões da página (Header, Hero, Galeria de Modelos, CTA Final e Botão Flutuante) são atualizados automaticamente!
 
 ---
 

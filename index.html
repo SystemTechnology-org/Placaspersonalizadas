@@ -795,8 +795,8 @@
             </svg>
             <span>Fale conosco agora</span>
           </a>
-          <span class="text-xs text-neutro/70 font-medium">
-            Atendimento direto e personalizado via WhatsApp
+          <span class="text-xs sm:text-sm text-neutro/80 font-medium">
+            Atendimento direto e personalizado via WhatsApp: <strong class="text-verde-escuro font-bold">+55 71 9916-1402</strong>
           </span>
         </div>
 
@@ -854,6 +854,7 @@
       <div class="text-center sm:text-right">
         <p>© <span id="ano-atual"></span> Todos os direitos reservados.</p>
         <p class="mt-1">Identificação para casas, chácaras, condomínios e loteamentos.</p>
+        <p class="mt-1 font-semibold text-verde-escuro">WhatsApp: +55 71 9916-1402</p>
       </div>
 
     </div>
@@ -887,11 +888,12 @@
       CONFIGURAÇÃO RÁPIDA:
       Substitua o número de telefone abaixo pelo seu número de WhatsApp com DDD.
       Formato: Código do país (55) + DDD (2 dígitos) + Número (8 ou 9 dígitos)
-      Exemplo: "5511999998888"
+      Exemplo: "557199161402"
       =====================================================================
     */
     const CONFIG_WHATSAPP = {
-      numero: "5500000000000", // <<< COLOQUE SEU WHATSAPP AQUI
+      numero: "557199161402", // +55 71 9916-1402
+      numeroFormatado: "+55 71 9916-1402",
       mensagemPadrao: "Olá! Vi o site e gostaria de solicitar um orçamento para uma placa personalizada em vidro temperado."
     };
 
@@ -905,6 +907,7 @@
 
       // Configura os links do WhatsApp
       const links = document.querySelectorAll(".whatsapp-link");
+      const cleanNumber = CONFIG_WHATSAPP.numero.replace(/\D/g, "");
 
       links.forEach(function (link) {
         const modelo = link.getAttribute("data-modelo");
@@ -912,7 +915,7 @@
           ? "Olá! Gostaria de um orçamento para a placa personalizada modelo \"" + modelo + "\" em vidro temperado."
           : CONFIG_WHATSAPP.mensagemPadrao;
 
-        link.href = "https://wa.me/" + CONFIG_WHATSAPP.numero + "?text=" + encodeURIComponent(msg);
+        link.href = "https://wa.me/" + cleanNumber + "?text=" + encodeURIComponent(msg);
         link.target = "_blank";
         link.rel = "noopener noreferrer";
       });
